@@ -1,0 +1,10 @@
+I = imread('Air100.png');
+
+[b,a] = ellip(8192,1000,81920,0.9);
+freqz(b,a)
+
+dataIn = I;
+dataOut = filter(b,a,dataIn);
+
+
+[peaksnr,snr] = psnr(dataOut,double(I))
